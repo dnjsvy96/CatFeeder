@@ -54,9 +54,7 @@ void setup(void){
   server.on("/", handleRoot);
 
   //on
-  server.on("/on", [](){    
-    feedServo.write(180);
-    delay(1000); 
+  server.on("/on", [](){   
     feedServo.write(0);
     delay(1000); 
     Serial.println("POWER ON");
@@ -65,9 +63,7 @@ void setup(void){
 
   //off
   server.on("/off", [](){
-    feedServo.write(180);
-    delay(1000); 
-    feedServo.write(0);
+    feedServo.write(90);
     delay(1000); 
     Serial.println("POWER OFF");
     server.send(200, "text/html", s);
